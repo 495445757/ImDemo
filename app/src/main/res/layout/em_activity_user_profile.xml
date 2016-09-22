@@ -216,4 +216,18 @@
 
         </RelativeLayout>
     </LinearLayout>
+
+       <Button
+           android:id="@+id/btn_send_mssage"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@color/ec_red"
+           android:layout_marginRight="10dp"
+           android:layout_marginLeft="10dp"
+           android:text="发送消息"
+           android:textSize="18sp"
+           android:textColor="@color/btn_white_normal"
+           android:layout_marginTop="20dp"
+           />
+
 </LinearLayout>

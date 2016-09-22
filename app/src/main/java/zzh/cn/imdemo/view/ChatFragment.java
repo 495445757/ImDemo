@@ -118,7 +118,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragmentHe
                     UserProfileActivity.startUserProfileActivity(getActivity(),toChatUsername);
                 }
             });
-            titleBar.setRightImageResource(R.drawable.em_icon_account);
+            titleBar.setRightImageResource(R.drawable.ec_chataccount);
         }
         //TODO 自定义表情添加
 //        ((EaseEmojiconMenu)inputMenu.getEmojiconMenu()).addEmojiconGroup(EmojiconExampleGroupData.getData());

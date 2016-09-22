@@ -1,11 +1,13 @@
 package zzh.cn.imdemo.view;
 
 import java.io.ByteArrayOutputStream;
+import java.nio.BufferUnderflowException;
 
 import com.bumptech.glide.Glide;
 import com.hyphenate.EMValueCallBack;
 import com.hyphenate.chat.EMClient;
 
+import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.utils.EaseUserUtils;
 
@@ -24,6 +26,7 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -31,6 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import zzh.cn.imdemo.R;
+import zzh.cn.imdemo.app.Constant;
 import zzh.cn.imdemo.app.DemoHelper;
 
 public class UserProfileActivity extends BaseActivity implements OnClickListener{
@@ -44,6 +48,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	private TextView tvUsername;
 	private ProgressDialog dialog;
 	private RelativeLayout rlNickName;
+	private Button sendMSg;
+
 
 	public static void startUserProfileActivity(Activity activity, String username) {
 		if (activity != null) {
@@ -69,11 +75,19 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 		tvNickName = (TextView) findViewById(R.id.user_nickname);
 		rlNickName = (RelativeLayout) findViewById(R.id.rl_nickname);
 		iconRightArrow = (ImageView) findViewById(R.id.ic_right_arrow);
+		//TODO
+		sendMSg = (Button) findViewById(R.id.btn_send_mssage);
+		sendMSg.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				ECChatActivity.startECChatActivity(UserProfileActivity.this, username, Constant.CHATTYPE_SINGLE);
+			}
+		});
 	}
-	
+	String username;
 	private void initListener() {
 		Intent intent = getIntent();
-		String username = intent.getStringExtra("username");
+		username = intent.getStringExtra("username");
 		boolean enableUpdate = intent.getBooleanExtra("setting", false);
 		if (enableUpdate) {
 			headPhotoUpdate.setVisibility(View.VISIBLE);

@@ -21,7 +21,7 @@ public class ECChatActivity extends EaseBaseActivity {
      * @param  id 群名或者用户名
      * @param type 是群聊还是单聊
      */
-    public static void startECChatActivity(Activity activity, String id, String type) {
+    public static void startECChatActivity(Activity activity, String id, int type) {
         if (activity != null) {
             Intent intent = new Intent(activity, ECChatActivity.class);
             // EaseUI封装的聊天界面需要这两个参数，聊天者的username，以及聊天类型，单聊还是群聊

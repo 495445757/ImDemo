@@ -295,17 +295,20 @@ public class DemoHelper {
 //        });
         
         //set notification options, will use default if you don't set it
+        //设置通知栏的标题和图标
         easeUI.getNotifier().setNotificationInfoProvider(new EaseNotificationInfoProvider() {
             
             @Override
             public String getTitle(EMMessage message) {
               //you can update title here
+                //可以在这里更新标题
                 return null;
             }
             
             @Override
             public int getSmallIcon(EMMessage message) {
               //you can update icon here
+                //可以在这里跟换图标
                 return 0;
             }
             
@@ -449,6 +452,7 @@ public class DemoHelper {
     
     /**
      * group change listener
+     * 群聊的监听
      */
     class MyGroupChangeListener implements EMGroupChangeListener {
 
@@ -476,7 +480,7 @@ public class DemoHelper {
             
             new InviteMessgeDao(appContext).deleteMessage(groupId);
             
-            //user accept your invitation
+            //用户接受你的邀请
             boolean hasGroup = false;
             EMGroup _group = null;
             for (EMGroup group : EMClient.getInstance().groupManager().getAllGroups()) {
